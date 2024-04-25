@@ -1,0 +1,101 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: #333;
+}
+
+/* Section styling */
+header, main, footer {
+    padding: 20px;
+}
+
+/* Branding and project info styling */
+#branding img {
+    width: 200px;
+    height: auto;
+}
+
+#project-info, #notes-section {
+    /* Additional styling can be added if specific adjustments are needed */
+}
+
+/* Graph placeholder styles */
+.graph-placeholder {
+    background-color: #ddd;
+    text-align: center;
+    padding: 50px;
+    margin: 20px 0;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+/* Specific styles for inputs and selects in the data input table */
+.data-input-table input[type="number"], .data-input-table select {
+    display: inline-block;  /* Change to 'flex' for flexbox styling */
+    vertical-align: middle;  /* Aligns them vertically */
+    box-sizing: border-box;  /* Border and padding are included in width */
+}
+
+.data-input-table td > div {
+    display: flex; /* Ensures that elements within div are lined up in a row */
+    width: 100%; /* Ensures div takes full width of the td */
+}
+
+.data-input-table input[type="number"], .data-input-table input[type="text"] {
+    flex: 70%; /* Allocates 70% width to input */
+}
+
+.data-input-table select {
+    flex: 30%; /* Allocates 30% width to select */
+}
+
+/* Disabled input styling */
+input[type="number"]:disabled {
+    background-color: #efefef;
+}
+
+/* Output cells styling */
+td[id^="frictionHeadLoss"],
+td[id^="elevationHead"],
+td[id^="totalHead"],
+td[id^="npshd"] {
+    background-color: #efefef;
+    text-align: right;
+}
+
+/* Add Row button styling */
+#addRowButton {
+    margin: 10px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Footer styling */
+footer {
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

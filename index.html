@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Transfer Pumping Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #mainLineGraph {
+            position: absolute;
+            top: 80px; /* Adjust this value to position the graph vertically */
+            left: 20px; /* Adjust this value to position the graph horizontally */
+        }
+        h1 {
+            position: absolute;
+            top: 10px; /* Adjust this value to position the title vertically */
+            left: 20px; /* Adjust this value to position the title horizontally */
+        }
+        header {
+            position: absolute;
+            top: 0;
+            right: 20px; /* Adjust this value to position the header horizontally */
+        }
+        main {
+            position: relative;
+            margin-top: 150px; /* Adjust this value to create space below the graph */
+        }
+        #data-table {
+            margin-top: 500px; /* Adjust this value to position the table */
+            margin-bottom: 20px; /* Adjust this value to create space between the table and footer */
+        }
+        #addRowButton {
+            margin-bottom: 10px; /* Adjust this value to create space between the button and the table */
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Water Transfer Pumping Profile</h1>
+
+  <canvas id="mainLineGraph"></canvas>
+
+    <header>
+        <div id="branding">
+            <img src="path/to/logo.png" alt="Company Logo">
+        </div>
+        <div id="project-info">
+            <p>Project: <span id="project-name">RK-2 2024</span></p>
+            <p>Date: <span id="date">January 28, 2020</span></p>
+            <p>System Max Pressure: <span id="max-pressure">205.528 PSI</span></p>
+            <p>System Flow: <span id="system-flow">9.0 m³/min</span></p>
+        </div>
+        <div id="file-upload">
+            <label for="elevationFile">Upload Elevation Data (Excel):</label>
+            <input type="file" id="elevationFile" accept=".xlsx" onchange="handleFileUpload(event)">
+        </div>
+        <div id="notes-section">
+            <label for="notes">Notes:</label>
+            <textarea id="notes" name="notes" rows="4"></textarea>
+        </div>
+    </header>
+
+    <main>
+        <section id="data-table">
+            <button type="button" id="addRowButton">Add Pump Row</button>
+            <table class="data-input-table">
+                <thead>
+                    <tr>
+                        <th>From (m)</th>
+                        <th>To (m)</th>
+                        <th>Distance (m)</th>
+                        <th>Flow Rate (m³/min)</th>
+                        <th>Pipe Diameter (in)</th>
+                        <th>Line Friction Coefficient</th>
+                        <th>Friction Head Loss (m)</th>
+                        <th>Elevation Head (m)</th>
+                        <th>Total Head (m)</th>
+                        <th>Pump Type</th>
+                        <th>Number of Pumps in Parallel</th>
+                        <th>Pump TDH (ft)</th>
+                        <th>NPSHD (ft)</th>
+                    </tr>
+                </thead>
+                <tbody id="pumpTableBody">
+                    <tr id="row-1">
+                        <td>
+                            <input type="number" name="from-1" data-row="1">
+                        </td>
+                        <td>
+                            <input type="number" name="to-1" data-row="1">
+                        </td>
+                        <td>
+                            <input type="number" name="distance-1" data-row="1" disabled>
+                        </td>
+                        <td>
+                            <input type="number" name="flowRate-1" data-row="1">
+                            <select name="flowRateUnit-1" data-row="1">
+                                <option value="m3min">m³/min</option>
+                                <option value="usgpm">US gpm</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="number" name="pipeDiameter-1" data-row="1">
+                            <select name="pipeDiameterUnit-1" data-row="1">
+                                <option value="inches">inches</option>
+                                <option value="millimeters">mm</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="number" name="lineFriction-1" data-row="1">
+                        </td>
+                        <td id="frictionHeadLoss-1" data-row="1">-</td>
+                        <td id="elevationHead-1" data-row="1">-</td>
+                        <td id="totalHead-1" data-row="1">-</td>
+                        <td>
+                            <input type="text" name="pumpType-1" data-row="1">
+                        </td>
+                        <td>
+                            <input type="number" name="numPumpsParallel-1" data-row="1">
+                        </td>
+                        <td>
+                            <input type="number" name="pumpTDH-1" data-row="1">
+                        </td>
+                        <td id="npshd-1" data-row="1">-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Water Transfer Pump Positioning Calculator</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>
